@@ -1,0 +1,49 @@
+﻿@model IList<Coursework.Models.MemberCategory>
+@{
+    ViewBag.Title = "Signup";
+}
+@if (TempData["SignupError"] != null)
+{
+    @TempData["SignupError"]
+}
+<h2>Member Signup</h2>
+<form method="post">
+    Member First Name:
+    <input name="FirstName" placeholder="First Name" required />
+    <br />
+    <br />
+    Member Last Name: 
+    <input name="LastName" placeholder="Last Name" required />
+    <br />
+    <br />
+    Member Email: 
+    <input name="Email" placeholder="Email" required />
+    <br />
+    <br />
+    Member Passowrd:
+    <input name="Password" type="password" placeholder="Password" required />
+    <br />
+    <br />
+    Member date of birth: 
+    <input name="Dob" placeholder="Date of birth" required />
+    <br />
+    <br />
+    Member Phone Number: 
+    <input name="PhoneNo" placeholder="Phone Number with zip-code" required />
+    <br />
+    <br />
+    Membership Type: 
+    <select name="MemberCategory">
+        @foreach (var m in Model)
+        {
+
+            <option value=@m.MemberCategoryId>@m.CategoryName</option>
+        }
+    </select>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Register</button>
+
+</form>
+
+

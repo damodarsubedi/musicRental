@@ -1,0 +1,48 @@
+﻿
+    @model IEnumerable<Coursework.Models.Album>
+
+    @{
+        ViewBag.Title = "Albums";
+    }
+
+<div class="jumbotron">
+    <h2>Album</h2>
+    @using (Html.BeginForm())
+    {
+        <p style="float:right">
+            <b>Search by Last name of artist: @Html.TextBox("SearchString")</b>
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    }
+    <br />
+    @if (Session["memb"] == null)
+    {
+        <p>
+            @Html.ActionLink("Create New", "../albums/Create", null, new { @class = "btn btn-primary" })
+        </p>
+    }
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+
+                    <h2> @Html.DisplayFor(modelItem => item.Name)</h2>
+                    <p>
+                        <img src="@Url.Content(item.CoverImagePath)" alt="@item.Name" height="200" width="270" />
+                    </p>
+                    <p>
+                        @Html.ActionLink("Details", "../albums/details", new { id = item.AlbumId }, new { @class = "btn btn-default" })
+                        @if (Session["memb"] == null)
+                        {
+                            @Html.ActionLink("Edit", "../albums/edit", new { id = item.AlbumId }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Delete", "../albums/delete", new { id = item.AlbumId }, new { @class = "btn btn-danger" })
+                        }
+                    </p>
+                    <p>
+                        @Html.ActionLink(" Check Copy for Loan", "../albumcopies/index", null, new { @class = "btn btn-primary" })
+                    </p>
+                </div>
+            }
+
+        </div>
+    </div>

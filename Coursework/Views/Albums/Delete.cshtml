@@ -1,0 +1,104 @@
+﻿@model Coursework.Models.Album
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Album</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumTypes.AlbumTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumTypes.AlbumTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleasedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleasedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoofSongs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoofSongs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalLength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CopyNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CopyNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandardCharge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandardCharge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeRestricted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeRestricted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoverImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Studio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Studio)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "../officeUser/album")
+        </div>
+    }
+</div>

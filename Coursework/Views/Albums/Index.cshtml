@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Coursework.Models.Album>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (Session["memb"] == null)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AlbumTypes.AlbumTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.ReleasedDate)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoofSongs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalLength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CopyNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StandardCharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeRestricted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoverImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Studio)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlbumTypes.AlbumTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleasedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoofSongs)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalLength)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CopyNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StandardCharge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgeRestricted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoverImagePath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Studio)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.AlbumId }) |
+                    @if (Session["memb"] == null)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.AlbumId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AlbumId })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>

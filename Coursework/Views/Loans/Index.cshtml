@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Coursework.Models.Loan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Loan</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+@using (Html.BeginForm())
+{
+    <div >
+        <b>Search by Member email: @Html.TextBox("memberLoan")</b>
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+
+    <div style="float:right">
+        <b>Search by Album Copy: @Html.TextBox("SearchString")</b>
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AlbumCopies.DvdCopyNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Members.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IssuedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCharge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanTypes)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumCopies.DvdCopyNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Members.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssuedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanTypes)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.LoanId }, new { @class = "btn btn-default" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.LoanId }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.LoanId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

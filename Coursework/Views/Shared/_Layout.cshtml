@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Everest Video Library", null, new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Session["memb"] != null)
+                    {
+                        <li>@Html.ActionLink("Artists", "Index", "Artists")</li>
+                        <li>@Html.ActionLink("Albums", "Album", "OfficeUser")</li>
+                    }
+                    @if (Session["assis"] == null && Session["manag"] == null && Session["memb"] == null)
+                    {
+
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    }
+                    @if (Session["assis"] != null || Session["manag"] != null)
+                    {
+                        <li>@Html.ActionLink("Artists", "Index", "Artists")</li>
+                        <li>@Html.ActionLink("Albums", "Album", "Officeuser")</li>
+                        <li>@Html.ActionLink("Member", "Index", "Members")</li>
+                        <li>@Html.ActionLink("Loans", "Index", "Loans")</li>
+                        <li>@Html.ActionLink("Producer", "Index", "Producers")</li>
+                        <li>@Html.ActionLink("Album Copies", "Index", "AlbumCopies")</li>
+
+                    }
+                    @if (Session["manag"] != null)
+                    {
+                        <li>@Html.ActionLink("Users", "Album", "OfficeUser")</li>
+
+                    }
+                    @if (Session["assis"] != null)
+                    {
+
+
+                        <li class="nav navbar-nav navbar-right">@Html.ActionLink("Change password", "../Users/Edit", new { id = Session["assis"] })</li>
+
+       
+                    }
+
+
+                </ul>
+                <
+                
+               @if (Session["assis"] != null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Logout", "../home/index")</li>
+                    </ul>
+                }
+                @if (Session["manag"] != null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Logout", "../home/index")</li>
+                    </ul>
+                }
+                @if (Session["memb"] != null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Logout", "../home/index")</li>
+                    </ul>
+                }
+                
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Everest Video Libary</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

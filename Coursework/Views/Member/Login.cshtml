@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+@if(TempData["LoginError"] != null)
+{
+    @TempData["LoginError"] 
+}
+<h2>Member Login</h2>
+<form method="post">
+    <input name="Email" placeholder="Email" required/>
+    <br />
+    <br />
+    <input name="Password" type="password" placeholder="Password" required/>
+    <br />
+    <br />
+    <button type="submit" , class = "btn btn-primary" >Login</button>
+</form>

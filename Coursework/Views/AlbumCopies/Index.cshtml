@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Coursework.Models.AlbumCopy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Album Copies</h2>
+@if (Session["memb"] == null)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+}
+    @using (Html.BeginForm())
+    {
+        <p style="float:right">
+            <b>Search by Album: @Html.TextBox("SearchString")</b>
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    }
+    <table class="table">
+        <tr>
+            <th>
+                Album Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DvdCopyNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CopyStatus)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Albums.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DvdCopyNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CopyStatus)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.AlbumCopyId }, new { @class = "btn btn-success" })
+                    @if (Session["memb"] == null)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.AlbumCopyId }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AlbumCopyId }, new { @class = "btn btn-warning" })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>

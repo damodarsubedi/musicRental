@@ -1,0 +1,34 @@
+﻿@model Coursework.Models.AlbumProducer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AlbumProducer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Albums.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Albums.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Producers.ProducerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producers.ProducerName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AlbumProducerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

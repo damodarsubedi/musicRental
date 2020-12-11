@@ -1,0 +1,74 @@
+﻿@model Coursework.Models.Loan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Loan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumCopies.DvdCopyNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumCopies.DvdCopyNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Members.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Members.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssuedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssuedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCharge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCharge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanTypes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanTypes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LoanId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

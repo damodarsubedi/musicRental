@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Coursework.Models.Artist>
+@{
+    ViewBag.Title = "ArtistAlbum";
+}
+
+<h2>ArtistAlbum</h2>
+<div class="jumbotron">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div>
+                <div class="col-md-4">
+
+                    <h2>Artist: @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</h2>
+                    <ul style="list-style:none">
+                        <li>@Html.DisplayNameFor(model => model.Gender): @Html.DisplayFor(modelItem => item.Gender)</li>
+                        <li>@Html.DisplayNameFor(model => model.Email): @Html.DisplayFor(modelItem => item.Email)</li>
+                        <li>@Html.DisplayNameFor(model => model.ContactNumber): @Html.DisplayFor(modelItem => item.ContactNumber)</li>
+                        <li>@Html.DisplayNameFor(model => model.BirthDate): @Html.DisplayFor(modelItem => item.BirthDate)</li>
+                    </ul>
+                    <p>
+                        @Html.ActionLink("Back to Album", "../officeUser/album", null, new { @class = "btn btn-default" })
+                    </p>
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+

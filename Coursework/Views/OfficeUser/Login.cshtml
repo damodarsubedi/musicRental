@@ -1,0 +1,31 @@
+﻿@model IList<Coursework.Models.UserRole>
+@{
+    ViewBag.Title = "Login";
+}
+@if (TempData["LoginError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["LoginError"]
+    </div>
+}
+<h2>Officers Login</h2>
+<form method="post">
+        <div class="form-group">
+          <input name="Email" placeholder="Officer Email" required class="form-control"/>
+        </div>
+        <div class="form-group">
+            <input name="Password" type="password" placeholder="Officer Password" class="form-control" required />
+        </div>
+ 
+        <div class="form-group">
+            <select name="UserRoleId" class="form-control">
+                @foreach (var m in Model)
+                {
+
+                    <option value=@m.UserRoleId>@m.UserRoleName</option>
+                }
+            </select>
+        </div>
+        <button type="submit" , class="btn btn-primary">Login</button>
+</form>
+

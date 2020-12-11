@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Coursework.Models.Producer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Producer</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<div class="jumbotron">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div>
+                <div class="col-md-4">
+
+                    <h3>Producer: @Html.DisplayFor(modelItem => item.ProducerName) </h3>
+                    <ul style="list-style:none">
+                        <li>@Html.DisplayNameFor(model => model.ProducerAddress): @Html.DisplayFor(modelItem => item.ProducerAddress)</li>
+                        <li>@Html.DisplayNameFor(model => model.ProducerPhone): @Html.DisplayFor(modelItem => item.ProducerPhone)</li>
+                       
+                    </ul>
+                    @if(Session["memb"] == null)
+                    {
+                        <p>
+                            @Html.ActionLink("Details", "details", new { id = item.ProducerId }, new { @class = "btn btn-default" })
+                            @Html.ActionLink("Edit", "edit", new { id = item.ProducerId }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Delete", "delete", new { id = item.ProducerId }, new { @class = "btn btn-danger" })
+                        </p>
+
+                    }
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>

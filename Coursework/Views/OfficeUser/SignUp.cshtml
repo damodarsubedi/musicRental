@@ -1,0 +1,43 @@
+﻿@model IList<Coursework.Models.UserRole>
+@{
+    ViewBag.Title = "SignUp";
+}
+@if (TempData["SignupError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+    @TempData["SignupError"]
+    </div>
+}
+<h2>Office User SignUp</h2>
+<form method="post">
+    <input name="FirstName" placeholder="First Name" required />
+    <br />
+    <br />
+    <input name="LastName" placeholder="Last Name" required />
+    <br />
+    <br />
+    <input name="Address" placeholder="Address" required />
+    <br />
+    <br />
+    <input name="Email" placeholder="Email" required />
+    <br />
+    <br />
+    <input name="UserContact" placeholder="User Phone" required />
+    <br />
+    <br />
+    <input name="Password" type="password" placeholder="Password" required />
+    <br />
+    <br />
+    <select name="UserRoleId">
+        @foreach (var m in Model)
+        {
+
+            <option value=@m.UserRoleId>@m.UserRoleName</option>
+        }
+    </select>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Register</button>
+
+</form>
+

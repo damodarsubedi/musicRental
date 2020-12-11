@@ -1,0 +1,50 @@
+﻿@model Coursework.Models.MemberCategory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MemberCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanAvailable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinePerExtraDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinePerExtraDays)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MemberCategoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

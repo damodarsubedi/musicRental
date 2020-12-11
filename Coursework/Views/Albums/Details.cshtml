@@ -1,0 +1,105 @@
+﻿@model Coursework.Models.Album
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Album</h4>
+    <hr />
+    <dl class="jumbotron">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumTypes.AlbumTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumTypes.AlbumTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleasedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleasedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoofSongs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoofSongs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalLength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CopyNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CopyNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StandardCharge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StandardCharge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeRestricted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeRestricted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverImagePath)
+            <img src="@Url.Content(Model.CoverImagePath)" alt="@Model.Name" height="100" width="100" />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoverImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Studio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Studio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "../officeUser/album", null, new { @class = "btn btn-default" })
+    @if (Session["memb"] == null)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.AlbumId }, new { @class = "btn btn-primary" })
+    }
+    @Html.ActionLink("Artist", "ArtistAlbum", new { id = Model.AlbumId }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Producer", "ProducerAlbum", new { id = Model.AlbumId }, new { @class = "btn btn-warning" })
+
+    </p>
